@@ -81,7 +81,7 @@ WHERE data_release BETWEEN '2019-06-01' AND '2019-11-30';
 ```sql
 SELECT *
 FROM movie
-WHERE year IN (2015, 2017, 2019);
+WHERE year IN(2015, 2017, 2019);
 ```
 *15. Sort movies from newest to oldest so that movie titles are displayed in alphabetical order*
 ```sql
@@ -157,8 +157,7 @@ INNER JOIN department
 ON employee.department_id = department.id
 GROUP BY name;
 ```
-*25. Find the average grade that students, born after 01.01.2005, get each year in each subject. Sort subjects alphabetically, and years in descending order
-*
+*25. Find the average grade that students, born after 01.01.2005, get each year in each subject. Sort subjects alphabetically, and years in descending order*
 ```sql
 SELECT subject AS subject, year AS year, AVG(mark) AS average_mark
 FROM scoreboard
@@ -182,7 +181,7 @@ FROM dish;
 ```
 *28. Find the number of new employees who were hired each year*
 ```sql
-SELECT EXTRACT(year from date_of_hiring) AS year, count(*) AS number_of_staff
+SELECT EXTRACT(year FROM date_of_hiring) AS year, COUNT(*) AS number_of_staff
 FROM staff
 GROUP BY year;
 ```
@@ -190,7 +189,7 @@ GROUP BY year;
 ```sql
 SELECT CONCAT(*) AS number_of_pupils
 FROM pupil
-WHERE EXTRACT(month from birth_date) = EXTRACT(month from current_date);
+WHERE EXTRACT(month FROM birth_date) = EXTRACT(month FROM current_date);
 ```
 *30. Find information about each of the products in the "Beverages" category in the form: [product name] - [amount] units*
 ```sql
@@ -200,7 +199,7 @@ INNER JOIN product
 ON category.id = product.category_id
 WHERE category.name = 'Beverages';
 ```
-*31. Find information about the GPA in each subject for the student with id 3. The result should be presented in the column named pupil_mark in the following form: [first_name] [last_name]: [subject] - [average mark].*
+*31. Find information about the GPA in each subject for the student with id 3. The result should be presented in the column named pupil_mark in the following form: [first_name] [last_name]: [subject] - [average mark]*
 ```sql
 SELECT CONCAT(first_name, ' ', last_name, ': ', subject, ' - ', AVG(mark)) AS pupil_mark
 FROM pupil
@@ -235,7 +234,7 @@ ON category.id = product.category_id
 GROUP BY category_name
 HAVING total_amount > 80;
 ```
-*35. Find the average grades in each subject for all years of the student 'Eugen Tsven'. The results are displayed only if the average score is 10 or more.*
+*35. Find the average grades in each subject for all years of the student 'Eugen Tsven'. The results are displayed only if the average score is 10 or more*
 ```sql
 SELECT subject, AVG(mark) AS average_mark
 FROM pupil
@@ -245,7 +244,7 @@ WHERE first_name = 'Eugen' AND last_name = 'Tsven'
 GROUP BY subject
 HAVING average_mark >= 10;
 ```
-*36. Find the name of the departments and the total amount of money spent on employee salaries. Show only those departments with more than three employees. Sort the result by amount of money in descending order.*
+*36. Find the name of the departments and the total amount of money spent on employee salaries. Show only those departments with more than three employees. Sort the result by amount of money in descending order*
 ```sql
 SELECT department.name AS department_name, SUM(salary) AS amount_of_money
 FROM department
@@ -255,14 +254,14 @@ GROUP BY department_name
 HAVING COUNT(*) > 3
 ORDER BY amount_of_money DESC;
 ```
-*37. Find information about the number of employees who were hired each month. Show the result only if the number of such employees is 3 or more.*
+*37. Find information about the number of employees who were hired each month. Show the result only if the number of such employees is 3 or more*
 ```sql
-SELECT EXTRACT(month from hiring_date) AS month, COUNT(*) AS number_of_employees
+SELECT EXTRACT(month FROM hiring_date) AS month, COUNT(*) AS number_of_employees
 FROM employee
 GROUP BY month
 HAVING number_of_employees >= 3;
 ```
-*38. Find the name of the category and the price of the most expensive product from this category, only if the category has 3 or more unique products. Sort the result by price in ascending order.*
+*38. Find the name of the category and the price of the most expensive product from this category, only if the category has 3 or more unique products. Sort the result by price in ascending order*
 ```sql
 SELECT category.name AS category_name, MAX(price) AS max_price
 FROM product
@@ -272,7 +271,7 @@ GROUP BY category_name
 HAVING COUNT(product.id) >= 3
 ORDER BY MAX(price);
 ```
-*39. Find category names for products under 300.*
+*39. Find category names for products under 300*
 ```sql
 SELECT distinct category.name
 FROM product
@@ -280,7 +279,7 @@ INNER JOIN category
 ON product.category_id = category.id
 WHERE price < 300;
 ```
-*40. Find the number of orders placed by each customer from London.*
+*40. Find the number of orders placed by each customer from London*
 ```sql
 SELECT orders.customer_id AS customer_id, COUNT(*) AS orders
 FROM customers
