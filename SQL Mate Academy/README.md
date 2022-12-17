@@ -273,7 +273,7 @@ ORDER BY MAX(price);
 ```
 *39. Find category names for products under 300*
 ```sql
-SELECT distinct category.name
+SELECT DISTINCT category.name
 FROM product
 INNER JOIN category
 ON product.category_id = category.id
