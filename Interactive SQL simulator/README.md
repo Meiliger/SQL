@@ -1,4 +1,4 @@
-# SQL
+# Interactive SQL simulator
 
 *1. Formulate an SQL query to create the `book` table, enter it in the code window (located below) and send it for verification (the Submit button). Structure of the `book` table:*
 ```sql
@@ -12,13 +12,11 @@ CREATE TABLE book
   ); 
 ```
 *2. Enter a new row in the `book` table (text values (VARCHAR type) must be enclosed in either double or single quotes):*
-```
-sql
+```sql
 INTO book (title, author, price, amount) VALUES ('Мастер и Маргарита', 'Булгаков М.А.', 670.99, 3);
 ```
 *3. Enter the last three records in the `book` table, the first record has already been added in the previous step:*
-```
-sql
+```sql
 INSERT INTO book
             (title,
              author,
@@ -38,8 +36,7 @@ VALUES      ('Белая гвардия',
              2);
 ```
 *4. Display information about all books stored in the warehouse*
-```
-sql
+```sql
 SELECT *
 FROM book; 
 ```
