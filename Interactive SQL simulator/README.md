@@ -13,7 +13,7 @@ CREATE TABLE book
 ```
 *2. Enter a new row in the `book` table (text values (VARCHAR type) must be enclosed in either double or single quotes):*
 ```sql
-INTO book (title, author, price, amount) VALUES ('Мастер и Маргарита', 'Булгаков М.А.', 670.99, 3);
+INSERT INTO book (title, author, price, amount) VALUES ('Мастер и Маргарита', 'Булгаков М.А.', 670.99, 3);
 ```
 *3. Enter the last three records in the `book` table, the first record has already been added in the previous step:*
 ```sql
@@ -85,7 +85,7 @@ WHERE amount IN (
                 SELECT amount
                 FROM book
                 GROUP BY amount
-                HAVING COUNT(amount)=1);
+                HAVING COUNT(amount) = 1);
 ```
 *12. Display information about books (author, title, price) whose price is less than the highest of the minimum prices calculated for each author*
 ```sql
